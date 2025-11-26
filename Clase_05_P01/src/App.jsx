@@ -12,23 +12,28 @@ import Boton from './components/Boton.jsx'
 import Boton2 from './components/Boton2.jsx'
 import Formulario from './components/Formulario.jsx'
 import Carrito from './components/Carrito.jsx'
+import Clicker from './components/Clicker.jsx'
+import ProductosConMockAPI from './components/ProductosConMockAPI.jsx'
 
 import StudentList from './components/StudentList.jsx'
+
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
     <>
-      <StudentList /> {/* Debería ponerlo en Main.jsx, pero nada, no importa. */}
+      {/*<StudentList />*/} {/* Debería ponerlo en Main.jsx, pero nada, no importa. */}
       <Header />
       <Nav />  {/*Hoy en día, el Nav se usa dentro del Header. Ayuda cuando vemos el sitio desde un teléfono.*/}
       <Main />
-      <Formulario />
-      <Carrito />
-      <Boton />
-      <Boton2 />
-      <Gallery />
+      <Clicker />
+      {/*<Formulario />*/}
+      {/*<Carrito />*/}
+      {/*<Boton />*/}
+      {/*<Boton2 />*/}
+      {/*<Gallery />*/}
+      <ProductosConMockAPI />
       <Footer />
     </>
   )
