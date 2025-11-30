@@ -6,6 +6,8 @@ Corresponde a lo visto en la "Clase 8" (Clase teórica), cuyo video en YouTube l
 
 ## Temas a ver en esta clase
 - Intro a Context API.
+- Separó Productos y Carrito: el componente <Inicio> hasta ahora mostraba <Productos> y <Carrito>, y estaban muy relacionados. Ahora los separa, preparando el terreno para llevar Carrito fuera de <Inicio>. Recordemos que <Productos> será público, pero <Carrito> debe ser manejado por cada usuario.
+- Despliegue en Vercel.
 
 ## Temas vistos
 - Debemos verificar que tenemos el react-router-dom instalado (o instalarlo, obvio).
@@ -40,11 +42,35 @@ Corresponde a lo visto en la "Clase 8" (Clase teórica), cuyo video en YouTube l
 
 - En 38:50 menciona la utilización de la función useContext (que hay que importarla previamente). Allí, en una diapositiva que muestra el componente Carrito, hace el import de useContext y luego lo utiliza al hacer: const {carrito, vaciarCarrito} = useContext(CarritoContext);
 
-- En 40:00 menciona que toda la lógica que pusimos en CarritoContext la usaremos en los componentes Carrito y Product. Entonces en esos componentes haremos el useContext, llevando las cosas que necesitamos, por ejemplo, a Carrito llevaremos "carrito" y "eliminarDelCarrito".
+- En 40:00 menciona que toda la lógica que pusimos en CarritoContext la usaremos en los componentes Carrito y Product. Entonces en esos componentes haremos uso de useContext, llevando las cosas que necesitamos, por ejemplo, a Carrito llevaremos "carrito" y "eliminarDelCarrito" (antes estas cosas se las hacíamos llegar a Carrito (y también a Product) a través de las props).
+
+- A partir de haber visto el "import { Link } from 'react-router-dom", noto que me había olvidado de ir a la visa de detalle del producto (a renderizar con el componente <ProductoDetalle>). Efectivamente, en el segundo 48:52 confirmo el Link para este propósito.
+
+- En 53:10 hizo un resumen PERFECTO de todo lo que hizo respecto al contexto. Verdaderamente excelente.
+
+- 1:03:30 menciona que se puede tener más de 1 contexto, aunque sería raro tener muchos. Si el proyecto es grande y se necesitan "muchos" contextos, deberán utilizarse otras herramientas tales como Redux.
+
+- Despliegue en Vercel -> 1:09:22.
+
+- Pasos para el despligue:
+  1.- Revisar que funcione bien en local.
+  2.- Verificar que package.json contiene todas las dependencias que necesitamos.
+  3.- Tener el archivo .env para credenciales seguras.
+  4.- Realizar el commit final con git.
+  5.- Logearse en Vercel con la cuenta de GitHub (después de todo, Vercel necesitará acceder a nuestro repo). Curiosidad: en 1:11:50 el profe muestra sus proyectos -varios- desplegados en Vercel.
+  6.- Agregar nueva proyecto, y bueno, seguir las instrucciones.
+
 
 ## Sobre la clase de consulta ("React | Clase de Consulta 8 - 21/10/25")
 
-- En el segundo xx:xx:xx....
+- En el segundo 16:54, en el chat, alguien responde a una pregunta soble excel/google sheets, y comenta que se pueden consumir (las google spread sheets) para luego, por ejemplo, renderizarlas. Menciona que hay varios tutoriales en YouTube (nunca se me ocurrió buscar el tema). El profe menciona que sí, que puede usarse un excel a modo de base de base de datos (Interesante porque es lo que hace Google Appsheet: te permite armar un front y una mobile app con facilidad para consumir y mostrar datos de una spreadsheet). Y que otra alternativa es hacerse un backend o usar un servicio como Firestore o Supabase (este último usa PostgreSQL).
+- En 21:15 mencionan lo bueno de usar Mongo, que te dá una BD en la nube gratis (Atlas). El profe destaca que lo lindo de Mongo es que es básicamente un JSON (y luego aclara que técnicamente es un BSON, hay que investigarlo).
+- 23:45 el profe analiza como deployar en GitHub Pages, teniendo presente que este es un proyecto armado con Vite.
+- IMPORTANTE: En 26:49 Vercel muestra un warning avisando que el usuario (el profe) tiene 7 proyectos que usan Node.js 18 o anterior, y que nuevos builds sobre esos proyectos fallarán a partir del 31/8/2025. Así que hay que mantener todo actualizado !!! Esto es importante cuando se habla con clientes, para explicarles que el mantenimiento tiene un costo !!!
+- 45:06 Un flaco menciona en el chat que al desplegar no le tomaba los estilos. Lo solucionó interviniendo en vite.config.js.-
+- 48:35 el profe muestra un poquito más de Tailwind y lo piola que es al ofrecer componentes ya armados, y que -seleccionando Code (en Preview/Code) y React (en HTML/React/Vue) arriba a la derecha- tenés el código listo para copiar y pegar. ESTO ES PARA MIRARLO CON ATENCIÓN: tailwindcss.com/plus/ui-blocks/ecommerce/components/category-previews (ojo, en la página de Tailwind hay algunos gratis y otros pagos, pero también hay otros lugares donde se pu)
+-INTERSANTE: en la página anterior (Tailwind) te ofrece (abajo a la izquierda) un curso gratis de 5 días para dominar el tema de las UI.
+- IMPORTANTE: Para usar la documentación, empezar acá: [tailwindcss.com/docs/display](https://tailwindcss.com/docs/display) explica TODO, con ejemplos y todo. Muestra a qué clases de css corresponde cada clase de tailwind.
 
 
 
@@ -52,3 +78,5 @@ Corresponde a lo visto en la "Clase 8" (Clase teórica), cuyo video en YouTube l
 
 
 
+
+:

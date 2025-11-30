@@ -1,40 +1,20 @@
-import { useState } from 'react'
+import { useContext } from 'react';
+import { CarritoContext } from '../context/CarritoContext.jsx';
 
-const Carrito = () => {
-    const listaProductos = [
-        {id: 1, nombre: "papas", precio: 1500},
-        {id: 2, nombre: "tomates", precio: 1800},
-        {id: 3, nombre: "cilantro", precio: 2000}
-    ];
+const Carrito = ({ productosEnCarrito, productosEliminados}) => {
 
-    const [carrito, setCarrito] = useState([]);
-
-    const agregarAlCarrito = (producto) => {
-        setCarrito([...carrito, producto]);
-    }
+    const {carrito, eliminarDelCarrito, vaciarCarrito } = useContext(CarritoContext);
 
     return (
         <div>
-            {/*}
-            <h2>Productos</h2>
-            <ul>
-                {listaProductos.map(producto => 
-                    <li key={producto.id}>
-                        {producto.nombre}:
-                        {producto.precio}
-                        <button onClick={() => agregarAlCarrito(producto)}>Agregar</button>
-                    </li>
-                )}
-            </ul>
-            <hr />
-            */}
-            
             <h1>Carrito de Compras</h1>
             {carrito.map((producto, index) => 
-                <p key={index}>{producto.nombre}: {producto.precio}</p>
-                )}
-            <hr />
-            <button onClick={()=>setCarrito([])}>Vaciar carrito</button>
+                <div key={index}>
+                    <p>{producto.title}: {producto.price}</p> {/* Para FakeStoreAPI: title y price */}
+                    <button onClick={() => eliminarDelCarrito(index)}>Eliminar</button>
+                </div>
+            )}
+            <button onClick={()=>vaciarCarrito()}>Vaciar Carrito</button>
         </div>
     )
 }

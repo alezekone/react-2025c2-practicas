@@ -4,6 +4,8 @@ import { createContext, useState } from 'react';
 export const CarritoContext = createContext();
 
 // Creamos un proveedor para el contexto.
+// El pasaje de "children" permite que cualquier componente
+// envuelto por este proveedor pueda acceder al contexto.
 export const CarritoProvider = ({ children }) => {
 
     const [carrito, setCarrito] = useState([]);
@@ -21,7 +23,8 @@ export const CarritoProvider = ({ children }) => {
     };
 
     return (
-        <CarritoContext.Provider value = {{ carrito, agregarAlCarrito, eliminarDelCarrito, vaciarCarrito }}>
+        <CarritoContext.Provider value = {{ carrito, agregarAlCarrito,
+                                            eliminarDelCarrito, vaciarCarrito }}>
             {children}
         </CarritoContext.Provider>
     );

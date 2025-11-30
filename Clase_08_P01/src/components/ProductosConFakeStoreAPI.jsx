@@ -1,6 +1,20 @@
-import { useState, useEffect} from 'react';
+// Esto habría que refactorizarlo. Está haciendo demásiadas coasas.
+// Esta consumiendo la API, renderizando y utilizando context API.
+// Igual, creo que *solo* podría sacarse el consumo de la API.
 
+import { useState, useEffect} from 'react';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom'; // Esto lo usaré para ir al detalle del producto.
+
+import { CarritoContext } from '../context/CarritoContext.jsx';
+
+// El parámetro "agregarProducto" ya no se usa, porque
+// ahora usamos el contexto.
+// const ProductosConFakeStoreAPI = ({agregarProducto}) => {
 const ProductosConFakeStoreAPI = () => {
+
+    const {agregarAlCarrito } = useContext(CarritoContext);
+
     const [producto, setProducto] = useState([]);
     const [cargando, setCargando] = useState(true);
     const [error, setError] = useState(null);
@@ -34,6 +48,8 @@ const ProductosConFakeStoreAPI = () => {
                              height={80}
                              width={80} 
                         />
+                        <button onClick={() => agregarAlCarrito(producto)}>Agregar al carrito</button>
+                        <Link to={`/producto-completo/${producto.id}`}>Ver detalle</Link>
                     </li>
                 ))}
             </ul>

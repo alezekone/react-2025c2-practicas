@@ -19,8 +19,10 @@ const DetalleProductoCompleto = () => {
 
     // Si quiero simular un error en la carga de datos, hago el fetch a la sgte URL:
     // https://6927072e26e7e41498fca0cb.mockapi.io/
+    // El siguiente funciona: https://6927072e26e7e41498fca0cb.mockapi.io/api/v1/productos/${id}
+    // Pero ahora usaré el de fakestoreapi:
     useEffect(()=> {
-        fetch(`https://6927072e26e7e41498fca0cb.mockapi.io/api/v1/productos/${id}`)
+        fetch(`https://fakestoreapi.com/products/${id}`)
             .then(respuesta => respuesta.json())
             .then(dato => setProducto(dato))
             .catch(error => {
@@ -36,7 +38,9 @@ const DetalleProductoCompleto = () => {
     return (
         <>
             <h2>Detalles del producto N° {id}</h2>
-            <p>Nombre: {producto.nombre}, precio: {producto.precio}</p>
+            {/* Comento la próxima línea, la cual correspondia a mockapi.io*/}
+            {/* <p>Nombre: {producto.nombre}, precio: {producto.precio}</p> */}
+            <p>Nombre: {producto.title}, precio: {producto.price}</p>
         </>
     );
 }
